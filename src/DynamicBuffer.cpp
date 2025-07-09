@@ -54,11 +54,11 @@ DynamicBuffer& DynamicBuffer::operator=(DynamicBuffer&& other) noexcept{
 
 // Изменяет размер буфера
 void DynamicBuffer::resize(size_t newSize){
-    int* newData = new int[newSize];
-    size_ = newSize;
+    int* newData = new int[newSize]; 
     for(size_t i = 0; i < (size_ < newSize ? size_ : newSize); ++i){
         newData[i] = data_[i];
     }
+    size_ = newSize;
     delete[] data_;
     data_ = newData;
 }
